@@ -265,5 +265,10 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
-  color: blue;
+  color: var(--link-color); /* Gold color matching Providence theme */
+  cursor: pointer;
+}
+
+header nav .nav-tools p:hover {
+  color: var(--link-hover-color);
 }

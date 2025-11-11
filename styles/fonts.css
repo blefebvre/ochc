@@ -1,4 +1,36 @@
 /* stylelint-disable max-line-length */
+
+/*
+ * Work Sans - Heading font (matches Providence Health Centre)
+ * TODO: Download and self-host these fonts for optimal performance
+ * Download from: https://fonts.google.com/specimen/Work+Sans
+ * Weights needed: 200 (ExtraLight), 300 (Light), 400 (Regular)
+ */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400&display=swap');
+
+/*
+ * Source Sans 3 - Body font (Proxima Nova alternative)
+ * TODO: Download and self-host these fonts for optimal performance
+ * Download from: https://fonts.google.com/specimen/Source+Sans+3
+ * Weights needed: 400 (Regular), 600 (SemiBold)
+ */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap');
+
+/* Fallback fonts for Work Sans */
+@font-face {
+  font-family: work-sans-fallback;
+  size-adjust: 95%;
+  src: local('Arial');
+}
+
+/* Fallback fonts for Source Sans */
+@font-face {
+  font-family: source-sans-fallback;
+  size-adjust: 100%;
+  src: local('Arial');
+}
+
+/* Legacy Roboto fonts - keeping for backwards compatibility */
 @font-face {
   font-family: roboto-condensed;
   font-style: normal;
