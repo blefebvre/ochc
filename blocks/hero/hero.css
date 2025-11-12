@@ -1,37 +1,130 @@
 .hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
+    max-width: unset;
+    padding: 0;
 }
 
 .hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh; /* Full height on mobile */
+    overflow: hidden;
+    padding: 100px 0 60px; /* Extra top padding on mobile to move text down */
+    background-color: #000; /* Fallback */
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+/* Hide the paragraph that wraps the picture */
+.hero > p:first-child {
+    margin: 0;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
 }
 
+/* Image container - positioned absolutely */
 .hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
 }
 
 .hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+    object-fit: cover;
+    object-position: -50px -70px; /* Crop top 40px and left 40px on mobile */
+    width: 100%;
+    height: 100%;
 }
 
+/* Text content - positioned on top with dark overlay */
+.hero h1,
+.hero > p:not(:first-child) {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.hero h1 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: var(--heading-color); /* Gold color matching Providence */
+    font-weight: 300; /* Light weight */
+    font-size: var(--heading-font-size-l); /* Smaller on mobile - 40px */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Strong shadow for readability */
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    padding: 20px;
+}
+
+.hero > p:not(:first-child) {
+    color: var(--text-color);
+    font-size: var(--body-font-size-m);
+    line-height: 1.6;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.4); /* More transparent */
+    padding: 20px;
+    margin-left: -20px;
+}
+
+/* Desktop: Split layout like Providence */
 @media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
-  }
+    .hero {
+        min-height: 600px; /* Larger on desktop */
+        padding: 80px 60px 80px 50%; /* Push text to right side */
+        align-items: flex-start;
+    }
+
+    /* Image takes up left side only */
+    .hero > p:first-child,
+    .hero picture {
+        width: 50%;
+        right: auto;
+    }
+
+    /* Reset image position for desktop */
+    .hero img {
+        object-position: center center; /* Normal positioning on desktop */
+    }
+
+    /* Text content on right side */
+    .hero h1 {
+        font-size: var(--heading-font-size-xl); /* Larger on desktop - 56px */
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 1) 100%
+        );
+        padding: 30px;
+        margin-left: -30px;
+    }
+
+    .hero > p:not(:first-child) {
+        background: rgba(0, 0, 0, 0.95);
+        padding: 30px;
+        margin-left: -30px;
+    }
+}
+
+@media (width >= 1200px) {
+    .hero {
+        min-height: 700px; /* Even larger on wide screens */
+        padding: 100px 80px 100px 50%;
+    }
+
+    .hero h1 {
+        font-size: var(
+            --heading-font-size-xxl
+        ); /* Extra large on wide screens - 72px */
+        padding: 40px;
+        margin-left: -40px;
+    }
+
+    .hero > p:not(:first-child) {
+        padding: 40px;
+        margin-left: -40px;
+    }
 }

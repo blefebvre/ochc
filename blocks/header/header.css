@@ -139,8 +139,9 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
+  font-family: var(--heading-font-family); /* Work Sans - matching headers */
   font-size: var(--heading-font-size-s);
-  font-weight: 700;
+  font-weight: 300; /* Light weight like headers */
   line-height: 1;
 }
 
