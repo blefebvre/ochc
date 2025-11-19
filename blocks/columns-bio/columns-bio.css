@@ -1,0 +1,33 @@
+.columns-bio > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-bio img {
+  width: 100%;
+}
+
+.columns-bio > div > div {
+  order: 1;
+}
+
+.columns-bio > div > .columns-bio-img-col {
+  order: 0;
+}
+
+.columns-bio > div > .columns-bio-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns-bio > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .columns-bio > div > div {
+    flex: 1;
+    order: unset;
+  }
+}
