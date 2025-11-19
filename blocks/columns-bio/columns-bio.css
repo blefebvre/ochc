@@ -1,33 +1,86 @@
 .columns-bio > div {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px; /* Spacing between team members */
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--dark-color); /* Subtle separator */
+}
+
+.columns-bio > div:last-child {
+    border-bottom: none; /* No border on last person */
 }
 
 .columns-bio img {
-  width: 100%;
+    width: 100%;
+    max-width: 150px; /* Smaller max size on mobile */
+    border-radius: 8px; /* Soften image corners */
 }
 
 .columns-bio > div > div {
-  order: 1;
+    order: 1;
 }
 
-.columns-bio > div > .columns-bio-img-col {
-  order: 0;
+.columns-bio > div > .columns-img-col {
+    order: 0;
+    margin-bottom: 24px; /* Space below image on mobile */
+    max-width: 150px; /* Constrain container on mobile */
 }
 
-.columns-bio > div > .columns-bio-img-col img {
-  display: block;
+.columns-bio > div > .columns-img-col img {
+    display: block;
+}
+
+/* Headings styling */
+.columns-bio h3 {
+    color: var(--heading-color); /* Gold color for names */
+    margin-top: 0;
+}
+
+.columns-bio h4 {
+    color: var(--link-color); /* Gold for titles */
+    font-weight: 400;
+    font-size: var(--body-font-size-m);
+    margin-top: 0.5em;
+}
+
+.columns-bio p {
+    margin-top: 1em;
 }
 
 @media (width >= 900px) {
-  .columns-bio > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
-  }
+    .columns-bio > div {
+        align-items: flex-start; /* Align to top, not center */
+        flex-direction: row;
+        gap: 40px; /* More space between image and text */
+    }
 
-  .columns-bio > div > div {
-    flex: 1;
-    order: unset;
-  }
+    .columns-bio > div > .columns-img-col {
+        flex: 1; /* 1/3rd of the width (1 out of 1+2) */
+        margin-bottom: 0;
+        max-width: 300px; /* Reasonable max size */
+        display: flex;
+        justify-content: center; /* Center image horizontally */
+        align-items: flex-start; /* Align to top */
+    }
+
+    /* Force consistent aspect ratio on all images */
+    .columns-bio > div > .columns-img-col picture {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3; /* Wider aspect ratio - landscape */
+        overflow: hidden;
+    }
+
+    .columns-bio > div > .columns-img-col img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Crop to fit the square */
+        object-position: center center;
+    }
+
+    /* Text column - exclude the image column */
+    .columns-bio > div > div:not(.columns-img-col) {
+        flex: 2; /* 2/3rds of the width (2 out of 1+2) */
+        order: unset;
+    }
 }
