@@ -12,8 +12,14 @@
 
 .columns-bio img {
     width: 100%;
-    max-width: 150px; /* Smaller max size on mobile */
     border-radius: 8px; /* Soften image corners */
+}
+
+/* Mobile-only: limit image size */
+@media (width < 900px) {
+    .columns-bio img {
+        max-width: 150px; /* Smaller max size on mobile */
+    }
 }
 
 .columns-bio > div > div {
