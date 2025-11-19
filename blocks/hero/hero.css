@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh; /* Full height on mobile */
+    min-height: 80vh; /* Full height on mobile */
     overflow: hidden;
     padding: 100px 0 60px; /* Extra top padding on mobile to move text down */
     background-color: #000; /* Fallback */
@@ -68,6 +68,12 @@
     background: rgba(0, 0, 0, 0.4); /* More transparent */
     padding: 20px;
     margin-left: -20px;
+}
+
+@media (width >= 450px) {
+    .hero img {
+        object-position: 0 0; /* Crop top 40px and left 40px on mobile */
+    }
 }
 
 /* Desktop: Split layout like Providence */
