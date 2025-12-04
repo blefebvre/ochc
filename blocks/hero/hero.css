@@ -69,6 +69,13 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
+/* Small mobile: Move image to the right */
+@media (width < 600px) {
+    .hero img {
+        object-position: calc(50% + 25px) center;
+    }
+}
+
 /* Desktop: Split layout - image left, text right */
 @media (width >= 900px) {
     .hero {
