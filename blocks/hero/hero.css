@@ -1,49 +1,17 @@
-/* Container overrides */
 .hero-container .hero-wrapper {
     max-width: unset;
     padding: 0;
 }
 
-/* Mobile: Full-width image with text overlay */
 .hero {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 60vh;
-    padding: 200px 0 10px;
-    background-color: #000;
-    overflow: hidden;
+    padding: 40px 0px;
+    min-height: 450px;
 }
 
-/* Image background - full width on mobile */
-.hero > p:first-child {
-    margin: 0;
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.hero picture {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-}
-
-/* Text content - overlay with semi-transparent background */
-.hero h1,
-.hero > p:not(:first-child) {
+.hero > div {
     position: relative;
-    z-index: 1;
-    max-width: 600px;
+    top: 350px;
 }
 
 .hero h1 {
@@ -51,7 +19,7 @@
     padding: 20px;
     color: var(--heading-color);
     font-weight: 300;
-    font-size: var(--heading-font-size-l);
+    font-size: var(--heading-font-size-ml);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
     background: linear-gradient(
         90deg,
@@ -60,27 +28,34 @@
     );
 }
 
-.hero > p:not(:first-child) {
-    margin: 0;
-    padding: 20px;
-    color: var(--text-color);
-    font-size: var(--body-font-size-m);
-    line-height: 1.6;
-    background: rgba(0, 0, 0, 0.5);
+.hero picture {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    box-sizing: border-box;
 }
 
-/* Small mobile: Move image to the right */
-@media (width < 600px) {
-    .hero img {
-        object-position: calc(50% + 25px) center;
+.hero img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@media (width >= 900px) {
+    .hero {
+        padding: 40px 32px;
     }
 }
 
 /* Desktop: Split layout - image left, text right */
 @media (width >= 900px) {
     .hero {
-        min-height: 600px;
+        min-height: 500px;
         padding: 80px 32px 80px calc(50% + 32px);
+    }
+
+    .hero > div {
+        top: 150px;
     }
 
     /* Image constrained to left half */
