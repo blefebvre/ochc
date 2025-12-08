@@ -233,6 +233,11 @@ main img {
     height: auto;
 }
 
+main p img {
+    width: 100%;
+    max-width: 500px;
+}
+
 .icon {
     display: inline-block;
     height: 24px;
@@ -250,7 +255,7 @@ main > .section {
 }
 
 main > .section > div {
-    max-width: 1200px;
+    max-width: 900px;
     margin: auto;
     padding: 0 24px;
 }

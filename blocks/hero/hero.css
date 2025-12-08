@@ -1,5 +1,4 @@
 .hero-container .hero-wrapper {
-    max-width: unset;
     padding: 0;
 }
 
@@ -7,6 +6,7 @@
     position: relative;
     padding: 40px 0px;
     min-height: 450px;
+    max-width: 900px;
 }
 
 .hero > div {
@@ -41,16 +41,10 @@
     height: 100%;
 }
 
-@media (width >= 900px) {
-    .hero {
-        padding: 40px 32px;
-    }
-}
-
 /* Desktop: Split layout - image left, text right */
-@media (width >= 900px) {
+@media (width >= 800px) {
     .hero {
-        min-height: 500px;
+        min-height: 410px;
         padding: 80px 32px 80px calc(50% + 32px);
     }
 
@@ -69,7 +63,7 @@
     .hero h1 {
         margin: 0 0 0.5em;
         padding: 30px;
-        font-size: var(--heading-font-size-xl);
+        font-size: var(--heading-font-size-l);
         background: linear-gradient(
             90deg,
             rgba(0, 0, 0, 0.95) 0%,
