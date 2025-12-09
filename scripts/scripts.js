@@ -109,6 +109,65 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Decorates code elements to enable click-to-copy functionality
+ * @param {Element} main The main element
+ */
+function decorateCode(main) {
+  const codeElements = main.querySelectorAll('code');
+
+  codeElements.forEach((code) => {
+    code.style.cursor = 'pointer';
+    code.setAttribute('title', 'Click to copy');
+
+    code.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(code.textContent);
+
+        // Create and show "Copied" message
+        const message = document.createElement('span');
+        message.textContent = 'Copied';
+        message.style.cssText = `
+          position: absolute;
+          background-color: var(--link-color);
+          color: var(--background-color);
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 500;
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.2s;
+          z-index: 1000;
+        `;
+
+        // Position the message near the code element
+        const rect = code.getBoundingClientRect();
+        message.style.top = `${rect.top + window.scrollY - 30}px`;
+        message.style.left = `${rect.left + window.scrollX}px`;
+
+        document.body.appendChild(message);
+
+        // Fade in
+        setTimeout(() => {
+          message.style.opacity = '1';
+        }, 10);
+
+        // Fade out and remove
+        setTimeout(() => {
+          message.style.opacity = '0';
+          setTimeout(() => {
+            document.body.removeChild(message);
+          }, 200);
+        }, 1500);
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error('Failed to copy text: ', err);
+      }
+    });
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -120,6 +179,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateCode(main);
 }
 
 /**

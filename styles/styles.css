@@ -32,9 +32,9 @@
     --body-font-size-xs: 14px;
 
     /* heading sizes - Matching Providence dimensions */
-    --heading-font-size-xxl: 72px; /* H1 - matches Providence */
-    --heading-font-size-xl: 56px; /* H2 large - Contact section */
-    --heading-font-size-l: 40px; /* H2 - Vision, Mission, Values */
+    --heading-font-size-xxl: 40px; /* H1 - matches Providence */
+    --heading-font-size-xl: 33px; /* H2 large - Contact section */
+    --heading-font-size-l: 28px; /* H2 - Vision, Mission, Values */
     --heading-font-size-ml: 30px; /* H3 - Address, Contact */
     --heading-font-size-m: 26px; /* H3 - Address, Contact */
     --heading-font-size-s: 22px;
@@ -121,7 +121,7 @@ h1 {
     font-size: var(--heading-font-size-xxl);
 }
 h2 {
-    font-size: var(--heading-font-size-xl);
+    font-size: var(--heading-font-size-l);
 }
 h3 {
     font-size: var(--heading-font-size-l);
@@ -149,6 +149,16 @@ blockquote {
 code,
 pre {
     font-size: var(--body-font-size-s);
+}
+
+code {
+    padding: 4px 8px;
+    margin: 0 2px;
+    border-radius: 4px;
+    background-color: var(--light-color);
+    border: 1px solid var(--link-color);
+    color: var(--link-color);
+    font-weight: 500;
 }
 
 pre {
@@ -231,6 +241,7 @@ main img {
     max-width: 100%;
     width: auto;
     height: auto;
+    margin-top: 8px;
 }
 
 main p img {
