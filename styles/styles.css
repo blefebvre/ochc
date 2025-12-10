@@ -241,7 +241,7 @@ main img {
     max-width: 100%;
     width: auto;
     height: auto;
-    margin-top: 8px;
+    margin: 8px 0;
 }
 
 main p img {
