@@ -36,7 +36,7 @@
     --heading-font-size-xl: 33px; /* H2 large - Contact section */
     --heading-font-size-l: 28px; /* H2 - Vision, Mission, Values */
     --heading-font-size-ml: 30px; /* H3 - Address, Contact */
-    --heading-font-size-m: 26px; /* H3 - Address, Contact */
+    --heading-font-size-m: 24px; /* H3 - Address, Contact */
     --heading-font-size-s: 22px;
     --heading-font-size-xs: 18px;
 
@@ -121,6 +121,7 @@ h1 {
     font-size: var(--heading-font-size-xxl);
 }
 h2 {
+    text-decoration: underline;
     font-size: var(--heading-font-size-l);
 }
 h3 {
