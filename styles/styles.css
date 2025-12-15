@@ -151,6 +151,10 @@ li {
     margin-bottom: 0.8em;
 }
 
+header li {
+    margin-bottom: 0;
+}
+
 code,
 pre {
     font-size: var(--body-font-size-s);
